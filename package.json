@@ -5,6 +5,7 @@
     "test": "web-test-runner \"src/**/*.test.js\""
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "svelte": "^3.37.0"
   },
   "devDependencies": {
@@ -14,6 +15,7 @@
     "@testing-library/svelte": "^3.0.3",
     "@web/test-runner": "^0.13.3",
     "chai": "^4.3.4",
-    "snowpack": "^3.3.7"
+    "snowpack": "^3.3.7",
+    "tinro": "^0.6.5"
   }
 }
