@@ -36,7 +36,7 @@
 <label class="w3-text-blue"><b>Password</b></label>
 <input class="w3-input w3-border" type="text">
 
-<button class="w3-btn w3-blue bb">Register</button>
+<button class="w3-btn w3-blue w3-round bb">Register</button>
 <div class="vv">
 <h1 class="zz">All Ready a Member ?  <span class="xx" on:click="{changeur}">Click Here</span></h1>
 </div> 

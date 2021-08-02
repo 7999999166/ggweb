@@ -24,6 +24,7 @@
     .cc{
         text-align: center;
         font-weight: bolder;
+        font-family: Georgia, 'Times New Roman', Times, serif;
     }
     .dd{
         display: flex;
@@ -42,6 +43,10 @@
         width: 300px;
         height: 300px;
     }
+     .jam{
+        font-size: 1.5rem;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
  
 </style>
 
@@ -49,18 +54,19 @@
 <div class="bb">
 
 	{#each yy as item}
-     <div class="aa w3-card-4">
+     <div class="aa w3-card-4" data-aos="zoom-out">
        <img src="https://res.cloudinary.com/kanik/image/upload/v1626675771/Bawana/pawali-250x250_qodr30.jpg" alt="Alps" class="zz">
        <div class="w3-container w3-center">
         <h2 class="cc">{item.gsx$product.$t}</h2>
         <div class="dd">
   <table class="w3-table w3-border gg">
-   <tr><td style="width:30%" class="ff">Diameter</td><td class="ee ff"> {item.gsx$diameterinch.$t} Inch</td></tr>
-  <tr><td style="width:30%" class="ff">Height</td><td class="ee ff"> {item.gsx$heightinch.$t} Inch</td></tr>
+   <tr><td style="width:30%" class="ff jam">Price</td><td class="ee ff jam">₹ {item.gsx$diameterinch.$t} </td></tr>
+  <!-- <tr><td style="width:30%" class="ff">Height</td><td class="ee ff"> {item.gsx$heightinch.$t} Inch</td></tr>
   <tr><td class="ff">Width</td>    <td class="ee ff"> {item.gsx$widthinch.$t} Inch</td></tr>
   <tr><td class="ff">Thickness</td>    <td class="ee ff"> {item.gsx$thicknessmm.$t} mm</td></tr>
   <tr><td class="ff">Circle</td>     <td class="ee ff"> {item.gsx$basecircleinch.$t} Inch</td></tr>
-  <tr><td class="ff">Weight</td>    <td class="ee ff"> {item.gsx$weightkg.$t} Kg</td></tr>
+  <tr><td class="ff">Weight</td>    <td class="ee ff"> {item.gsx$weightkg.$t} Kg</td></tr> -->
+  <tr><td class="ff"><button class="w3-button w3-black w3-round">Details</button></td>    <td class="ee ff"> <button class="w3-button w3-black w3-hover-blue w3-round"> Buy Now</button></td></tr>
   </table>
   </div>
       </div>
