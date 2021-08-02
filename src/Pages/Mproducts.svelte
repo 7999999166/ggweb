@@ -19,6 +19,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        margin-top: 70px;
     }
 
     .cc{
@@ -42,18 +43,10 @@
         width: 300px;
         height: 300px;
     }
-    .jj{
-        text-align: center;
-        font-size: 2.5rem;
-        margin-top: 110px;
-        color: #0081a7;
-        font-weight: bold;
-        margin-bottom: 20px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
+  
 </style>
 
-<h1 class="jj">Ration Dabbas</h1>
+
 
 
 <div class="bb">

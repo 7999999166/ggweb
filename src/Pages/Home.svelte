@@ -7,6 +7,7 @@
         text-align: center;
         margin-top: 20px;
         font-family: 'Times New Roman', Times, serif;
+        margin-bottom: 40px;
     }
 </style>
 <div>

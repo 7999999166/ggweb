@@ -8,14 +8,15 @@
     import Space from './Components/Space.svelte';
     import About from './Pages/About.svelte';
     import Mproducts from './Pages/Mproducts.svelte';
+    import Login from './Pages/Login.svelte';
+    import Save from './Pages/Save.svelte';
+
 </script>
 <style>
 
 </style>
 <Header></Header>
 <Space></Space>
-
-
 <Route path="/about"><About></About></Route>
 <Route path="/"><Home></Home></Route>
 
@@ -23,8 +24,11 @@
  <Mproducts></Mproducts>  
 </Route>
 
-<Route path="/portfolio/*">
-        <Route path="/"><h1>Portfolio introduction</h1><nav> <a href="/portfolio/sites">Sites</a><a href="/portfolio/photos">Photos</a></nav></Route>                                                    
-        <Route path="/sites"><h1>Portfolio: Sites</h1></Route>
-        <Route path="/photos"><h1>Portfolio: Photos</h1></Route>
+<Route path="/login">
+   <Login></Login>     
 </Route>
+
+<Route path="/register">
+   <Save></Save>     
+</Route>
+
