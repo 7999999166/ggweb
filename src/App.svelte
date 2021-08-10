@@ -15,13 +15,6 @@
     import Login from './Pages/Login.svelte';
     import Save from './Pages/Save.svelte';
 
-    import './nedb.min.js';
-
-    var db = new Nedb({
-    filename: 'AppData.db',
-    autoload: true
-  });
-
 </script>
 <style>
 
@@ -44,5 +37,5 @@
 </Route>
 
 <Route path="/product/*" firstmatch>
-    <Route path="/:name" let:meta>Show user {meta.params.name}'s profile</Route> 
+ <Route path="/:id" let:meta><h1>Show user {meta.params.id}'s profile</h1></Route>    
 </Route>

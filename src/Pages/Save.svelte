@@ -1,8 +1,4 @@
-<script>
-      function changeur() {
-       location.pathname = 'login';
-    }
-</script>
+
 <style>
     .aa{
         margin-top: 40px;
@@ -22,7 +18,9 @@
     .zz{
         font-size: 1.5rem;
     }
-   
+    a{
+        text-decoration: none;
+    }
 </style>
 <div>
      <form class="w3-container aa">
@@ -38,7 +36,7 @@
 
 <button class="w3-btn w3-blue w3-round bb">Register</button>
 <div class="vv">
-<h1 class="zz">All Ready a Member ?  <span class="xx" on:click="{changeur}">Click Here</span></h1>
+<h1 class="zz">All Ready a Member ?  <span class="xx"><a href="/login">Click Here</a></span></h1>
 </div> 
 </form> 
 </div>

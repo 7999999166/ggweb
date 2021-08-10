@@ -1,11 +1,37 @@
-<script>
-    import axios from 'axios';
-    import {price,review,product,hello} from '../data.js';
+import {writable} from 'svelte/store';
 
-    $: main = [] ;
-    $product.find({}, function (err, docs) {main = docs ;});
+import './nedb.min.js';
 
-    var xyz = [
+var database1 = new Nedb({filename: 'Product.db', autoload: true });
+var database2 = new Nedb({filename: 'Price.db', autoload: true });
+var database3 = new Nedb({filename: 'Review.db', autoload: true });
+
+
+let product = writable(database1);
+let price   = writable(database2);
+let review  = writable(database3);
+
+function hello (){console.log("hello How are You");}
+
+
+export {product , price , review , hello}  ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var xyz = [
    {
     "id": 1,
     "Title": "Samsung S21",
@@ -15,7 +41,7 @@
     "published_at": "2021-08-07T18:39:24.605Z",
     "created_at": "2021-08-07T18:39:02.038Z",
     "updated_at": "2021-08-07T18:39:24.646Z",
-    "Images": "https://res.cloudinary.com/kanik/image/upload/v1626675771/Bawana/pawali-250x250_qodr30.jpg"
+    "Images": "https://res.cloudinary.com/kanik/image/upload/v1626675500/Bawana/MIR921-1_700x_dvza82.webp"
   },
   {
     "id": 2,
@@ -26,7 +52,7 @@
     "published_at": "2021-08-07T18:39:58.389Z",
     "created_at": "2021-08-07T18:39:55.645Z",
     "updated_at": "2021-08-07T18:39:58.412Z",
-    "Images": "https://res.cloudinary.com/kanik/image/upload/v1626675771/Bawana/pawali-250x250_qodr30.jpg"
+    "Images": "https://res.cloudinary.com/kanik/image/upload/v1626675500/Bawana/MIR921-1_700x_dvza82.webp"
   },
   {
     "id": 3,
@@ -37,7 +63,7 @@
     "published_at": "2021-08-07T18:40:22.720Z",
     "created_at": "2021-08-07T18:40:20.347Z",
     "updated_at": "2021-08-07T18:40:22.744Z",
-    "Images": "https://res.cloudinary.com/kanik/image/upload/v1626675771/Bawana/pawali-250x250_qodr30.jpg"
+    "Images": "https://res.cloudinary.com/kanik/image/upload/v1626675500/Bawana/MIR921-1_700x_dvza82.webp"
   },
   {
     "id": 4,
@@ -62,84 +88,3 @@
     "Images": "https://res.cloudinary.com/kanik/image/upload/v1626675500/Bawana/MIR921-1_700x_dvza82.webp"
   }
 ]
-
-   
-   hello();
-
-    $product.insert(xyz, function (err, newDoc) { console.log(newDoc) });
-
-</script>
-
-<style>
-    .aa{
-        margin-right: 20px;
-        background-color: #ade8f4;
-        margin-bottom: 20px;
-    }
-  
-    .bb{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 70px;
-    }
-
-    .cc{
-        text-align: center;
-        font-weight: bolder;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-    .dd{
-        display: flex;
-        justify-content: center;
-    }
-    .ee{
-       text-align: end;
-    }
-    .ff{
-        font-weight: bolder;
-    }
-    .gg{
-        margin-bottom: 10px;
-    }
-    .zz{
-        width: 300px;
-        height: 300px;
-    }
-    .jam{
-        font-size: 1.5rem;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-    a{
-      text-decoration: none;
-      color: white;
-    }
-
-    a:hover{
-      color: black;
-    }
-</style>
-
-
-
-
-<div class="bb">
-
-  	{#each main as item}
-     <div class="aa w3-card-4" data-aos="zoom-out">
-       <img src={item.Images} alt="Alps" class="zz">
-       <div class="w3-container w3-center">
-        <h2 class="cc">{item.Title}</h2>
-        <div class="dd">
-  <table class="w3-table w3-border gg">
-   <tr><td style="width:30%" class="ff jam">Price</td><td class="ee ff jam"> ₹ {item.Price} </td></tr>
-  <tr><td class="ff"><button class="w3-button w3-black w3-round"><a href="/product/{item.id}">Details</a></button></td>    <td class="ee ff"> <button class="w3-button w3-black w3-hover-blue w3-round"> Buy Now</button></td></tr>
-  </table>
-  </div>
-      </div>
-   </div> 
-	{/each}
-    </div>
-
-
