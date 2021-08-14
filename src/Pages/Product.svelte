@@ -1,10 +1,21 @@
 <script>
     import axios from 'axios';
+    import Loading from '../Components/Loading.svelte';
+    let mata = false ;
     var yy = [] ;
     function getData(){axios.get('https://spreadsheets.google.com/feeds/list/1H4UOgrGbdjq866V_w6jIqr55sBh01c4SSOcelddFwtQ/od6/public/values?alt=json')
-                        .then(function (response) {  yy = response.data.feed.entry ; console.log(yy) ; })
+                        .then(function (response) {  yy = response.data.feed.entry ; console.log(yy) ;})
+                        .then(function (){mata = false})
                         }
-    getData();
+
+   function bhen(callback){mata = true ; callback() ;}
+
+   bhen(getData);
+
+   
+
+   
+
 </script>
 
 <style>
@@ -53,6 +64,11 @@
 
 <div class="bb">
 
+    {#if mata == true }
+	<Loading></Loading>
+
+{:else}
+	
 	{#each yy as item}
      <div class="aa w3-card-4" data-aos="zoom-out">
        <img src="https://res.cloudinary.com/kanik/image/upload/v1626675771/Bawana/pawali-250x250_qodr30.jpg" alt="Alps" class="zz">
@@ -72,6 +88,7 @@
       </div>
    </div> 
 	{/each}
+    {/if}
     </div>
 
 

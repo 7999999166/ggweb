@@ -3,35 +3,19 @@ import {writable} from 'svelte/store';
 import './nedb.min.js';
 
 var database1 = new Nedb({filename: 'Product.db', autoload: true });
-var database2 = new Nedb({filename: 'Price.db', autoload: true });
+var database2 = new Nedb({filename: 'order.db', autoload: true });
 var database3 = new Nedb({filename: 'Review.db', autoload: true });
 
 
 let product = writable(database1);
-let price   = writable(database2);
+let order   = writable(database2);
 let review  = writable(database3);
+let counter = writable(0);
 
 function hello (){console.log("hello How are You");}
 
 
-export {product , price , review , hello}  ;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var xyz = [
+ var xyz = [
    {
     "id": 1,
     "Title": "Samsung S21",
@@ -41,7 +25,7 @@ var xyz = [
     "published_at": "2021-08-07T18:39:24.605Z",
     "created_at": "2021-08-07T18:39:02.038Z",
     "updated_at": "2021-08-07T18:39:24.646Z",
-    "Images": "https://res.cloudinary.com/kanik/image/upload/v1626675500/Bawana/MIR921-1_700x_dvza82.webp"
+    "Images": "https://res.cloudinary.com/kanik/image/upload/v1626675771/Bawana/pawali-250x250_qodr30.jpg"
   },
   {
     "id": 2,
@@ -52,7 +36,7 @@ var xyz = [
     "published_at": "2021-08-07T18:39:58.389Z",
     "created_at": "2021-08-07T18:39:55.645Z",
     "updated_at": "2021-08-07T18:39:58.412Z",
-    "Images": "https://res.cloudinary.com/kanik/image/upload/v1626675500/Bawana/MIR921-1_700x_dvza82.webp"
+    "Images": "https://res.cloudinary.com/kanik/image/upload/v1626675771/Bawana/pawali-250x250_qodr30.jpg"
   },
   {
     "id": 3,
@@ -63,7 +47,7 @@ var xyz = [
     "published_at": "2021-08-07T18:40:22.720Z",
     "created_at": "2021-08-07T18:40:20.347Z",
     "updated_at": "2021-08-07T18:40:22.744Z",
-    "Images": "https://res.cloudinary.com/kanik/image/upload/v1626675500/Bawana/MIR921-1_700x_dvza82.webp"
+    "Images": "https://res.cloudinary.com/kanik/image/upload/v1626675771/Bawana/pawali-250x250_qodr30.jpg"
   },
   {
     "id": 4,
@@ -88,3 +72,22 @@ var xyz = [
     "Images": "https://res.cloudinary.com/kanik/image/upload/v1626675500/Bawana/MIR921-1_700x_dvza82.webp"
   }
 ]
+
+
+export {xyz ,product , order , review , hello , counter}  ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

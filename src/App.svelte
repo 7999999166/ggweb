@@ -14,6 +14,7 @@
     import Mproducts from './Pages/Mproducts.svelte';
     import Login from './Pages/Login.svelte';
     import Save from './Pages/Save.svelte';
+    import Individual from './Pages/Individual.svelte';
 
 </script>
 <style>
@@ -36,6 +37,7 @@
    <Save></Save>     
 </Route>
 
-<Route path="/product/*" firstmatch>
- <Route path="/:id" let:meta><h1>Show user {meta.params.id}'s profile</h1></Route>    
+  <Route path="/product/*" firstmatch>
+ <Route path="/:id" let:meta><Individual>
+ </Individual></Route>    
 </Route>
