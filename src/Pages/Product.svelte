@@ -3,6 +3,9 @@
     import Loading from '../Components/Loading.svelte';
     let mata = false ;
     var yy = [] ;
+
+    function checkm(){setTimeout(function(){ if(mata == true) {location.reload();} }, 5000);}
+
     function getData(){axios.get('https://spreadsheets.google.com/feeds/list/1H4UOgrGbdjq866V_w6jIqr55sBh01c4SSOcelddFwtQ/od6/public/values?alt=json')
                         .then(function (response) {  yy = response.data.feed.entry ; console.log(yy) ;})
                         .then(function (){mata = false})
@@ -11,6 +14,7 @@
    function bhen(callback){mata = true ; callback() ;}
 
    bhen(getData);
+   checkm();
 
    
 

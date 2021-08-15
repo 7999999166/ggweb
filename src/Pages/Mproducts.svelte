@@ -1,13 +1,11 @@
-<script>
-    import {Route} from 'tinro'; 
-    import axios from 'axios';
+<script> 
     import {xyz,order,product,hello,counter} from '../data.js';
     import { onMount } from 'svelte';
 
     $: main = [] ;
    
     hello();
-     
+
      
     function step1(){ $product.remove({}, { multi: true }); console.log('i just happened'); }
     function step2(){ $product.insert(xyz);}
@@ -16,16 +14,16 @@
 
     onMount( final) ;
 
-    var jj ;
     var bb ;
     var cc ;
-    var dd = {} ;
-    function addOrder(e){ bb = e.target.getAttribute("data-id");  bb =  parseInt(bb); ; dd = {id: bb} ; addOrder1();  }
-    function addOrder1(){ $product.findOne( dd, function (err, doc) { cc = doc ;  $order.insert(cc); });
-                          $order.find({}, function (err, docs) { $counter = docs.length ; console.log($counter); });
-                        }
+    var dd ;
     
-  
+
+    
+    async function addOrder(e){ bb = e.target.getAttribute("data-id");   bb =  parseInt(bb);   dd = {id: bb} ; console.log(dd); await addOrder1(); await costi(); }
+    function addOrder1(){ $product.findOne( dd, function (err, doc) { cc = doc ; return $order.insert(cc); }) ; }
+    function costi() { $order.find({}, function (err, docs) {return $counter = docs.length + 1  ;  }); }                      
+                                              
 </script>
 
 <style>
