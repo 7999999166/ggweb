@@ -11,6 +11,7 @@ let product = writable(database1);
 let order   = writable(database2);
 let review  = writable(database3);
 let counter = writable(0);
+let totaly  = writable(0);
 
 function hello (){console.log("hello How are You");}
 
@@ -74,7 +75,7 @@ function hello (){console.log("hello How are You");}
 ]
 
 
-export {xyz ,product , order , review , hello , counter}  ;
+export {xyz ,product , order , review , hello , counter ,totaly}  ;
 
 
 

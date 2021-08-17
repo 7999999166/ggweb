@@ -1,5 +1,5 @@
 <script> 
-    import {xyz,order,product,hello,counter} from '../data.js';
+    import {xyz,order,product,hello,counter,totaly} from '../data.js';
     import { onMount } from 'svelte';
 
     $: main = [] ;
@@ -12,18 +12,22 @@
     function step3(){ $product.find({}, function (err, docs) {main = docs ;});}
     async function final(){step1(); await step2();  await step3();}
 
-    onMount( final) ;
+    
 
+    onMount( final) ;
+    
     var bb ;
     var cc ;
     var dd ;
+
     
 
     
-    async function addOrder(e){ bb = e.target.getAttribute("data-id");   bb =  parseInt(bb);   dd = {id: bb} ; console.log(dd); await addOrder1(); await costi(); }
+    async function addOrder(e){ bb = e.target.getAttribute("data-id");   bb =  parseInt(bb);   dd = {id: bb} ; await addOrder1(); await costi(); setTimeout(function(){ tota(); }, 2000);   }
     function addOrder1(){ $product.findOne( dd, function (err, doc) { cc = doc ; return $order.insert(cc); }) ; }
-    function costi() { $order.find({}, function (err, docs) {return $counter = docs.length + 1  ;  }); }                      
-                                              
+    function costi() { $order.find({}, function (err, docs) {return $counter = docs.length + 1  ;  }); }  
+    function tota()  {$order.find({}, { Price: 1, _id: 0 }, function (err, docs) { $totaly = docs.reduce((acc, curr) => {return (acc += curr.Price);},0);});}                                             
+                                   
 </script>
 
 <style>

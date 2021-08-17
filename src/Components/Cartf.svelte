@@ -1,15 +1,22 @@
 <script>
 import Cartc from './Cartc.svelte';
-import {order} from '../data.js';
+import {totaly , order} from '../data.js';
 
 
-    var total ;
-    var matta = true ;
-    function mazza(){ location.pathname = 'login' ; }
 
-    $order.find({}, { Price: 1, _id: 0 }, function (err, docs) {
-    console.log(docs); total = Object.values(docs).reduce((acc, curr) => {return (acc += curr.Price);},0);
-});
+$order.find({}, { Price: 1, _id: 0 }, function (err, docs) {console.log(docs); ; $totaly = docs.reduce((acc, curr) => {return (acc += curr.Price);},0); });
+
+    
+   
+$: total = $totaly ; ;
+var matta = true ;
+function mazza(){ location.pathname = 'login' ; }
+
+     
+
+
+
+   
 
     
 </script>
